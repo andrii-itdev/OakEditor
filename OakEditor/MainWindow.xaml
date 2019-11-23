@@ -1,0 +1,211 @@
+﻿<Window x:Class="OakEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OakEditor"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True"
+        mc:Ignorable="d"
+        Title="OakEditor" 
+        Height="450" 
+        Width="800"
+        FontFamily="Comic Sans MS"
+        FontSize="18">
+    <DockPanel
+        LastChildFill="True">
+
+        <DockPanel
+            DockPanel.Dock="Top"
+            Height="26"
+            Background="DimGray"
+            LastChildFill="True"
+            MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+
+            <Button x:Name="ExitBtn" 
+                    DockPanel.Dock="Right" 
+                    Width="19"
+                    Margin="3"
+                    Click="ExitBtn_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Stroke="Black"
+                                     StrokeThickness="1">
+                                <Ellipse.Fill>
+                                    <SolidColorBrush Color="Red"></SolidColorBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            
+            <Button x:Name="MaximizeBtn" 
+                    DockPanel.Dock="Left" 
+                    Width="19"
+                    Margin="3"
+                    Click="MaximizeBtn_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Stroke="Black"
+                                     StrokeThickness="1">
+                                <Ellipse.Fill>
+                                    <SolidColorBrush Color="Blue"></SolidColorBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button x:Name="MinimizeBtn" 
+                    DockPanel.Dock="Left" 
+                    Width="19"
+                    Margin="3"
+                    Click="MinimizeBtn_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Stroke="Black"
+                                     StrokeThickness="1">
+                                <Ellipse.Fill>
+                                    <SolidColorBrush Color="Green"></SolidColorBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <TextBlock TextAlignment="Center">Oak Editor 1.0</TextBlock>
+        </DockPanel>
+        <Menu
+            DockPanel.Dock="Top"
+            FontFamily="Comic Sans MS"
+            FontSize="18"
+            Background="Gray"
+            Foreground="White">
+            <Menu.Resources>
+                <Style TargetType="MenuItem">
+                    <Setter Property="Foreground" 
+                            Value="Gray"></Setter>
+            </Style>
+            </Menu.Resources>
+
+            <MenuItem
+                Header="File"
+                Foreground="White">
+                <MenuItem
+                    x:Name="OpenMI"
+                    Header="Open"
+                    Click="OpenMI_Click"></MenuItem>
+                <MenuItem
+                    x:Name="SAveMI"
+                    Header="Save"
+                    Click="SAveMI_Click"></MenuItem>
+                <MenuItem
+                    x:Name="SaveAsMI"
+                    Header="Save As..."
+                    Click="SaveAsMI_Click"></MenuItem>
+                <MenuItem
+                    x:Name="ExitMI"
+                    Header="Exit"
+                    Click="ExitMI_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem
+                Header="Edit"
+                Foreground="White">
+                <MenuItem
+                    x:Name="UndoMI"
+                    Header="Undo"
+                    Click="UndoMI_Click">
+                </MenuItem>
+                <MenuItem
+                    x:Name="RedoMI"
+                    Header="Redo"
+                    Click="RedoMI_Click">
+                </MenuItem>
+                <Separator></Separator>
+                <MenuItem
+                    x:Name="CutMI"
+                    Header="Cut"
+                    Click="CutMI_Click">
+                </MenuItem>
+                <MenuItem
+                    x:Name="CopyMI"
+                    Header="Copy"
+                    Click="CopyMI_Click">
+                </MenuItem>
+                <MenuItem
+                    x:Name="PasteMI"
+                    Header="Paste"
+                    Click="PasteMI_Click">
+                </MenuItem>
+                <MenuItem
+                    x:Name="DeleteMI"
+                    Header="Delete"
+                    Click="DeleteMI_Click">
+                </MenuItem>
+                <MenuItem
+                    x:Name="SelectAllMI"
+                    Header="Select all"
+                    Click="SelectAllMI_Click">
+                </MenuItem>
+                <Separator></Separator>
+                <MenuItem
+                    x:Name="TimeAndDateMI"
+                    Header="Time and date"
+                    Click="TimeAndDateMI_Click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem 
+                Header="Formatting"
+                Foreground="White">
+                <MenuItem 
+                    x:Name="CarryOverMI"
+                    Header="Carry-over words"
+                    IsCheckable="True"
+                    Checked="CarryOverMI_Checked"
+                    Unchecked="CarryOverMI_Unchecked">
+                </MenuItem>
+                <MenuItem
+                    x:Name="SelectColorMI"
+                    Header="Select color"
+                    Click="SelectColorMI_Click">
+                </MenuItem>
+                <MenuItem 
+                    x:Name="FontMI"
+                    Header="Font"
+                    Click="FontMI_Click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem
+                Header="About"
+                Foreground="White"
+                Click="MenuItem_Click">
+            </MenuItem>
+        </Menu>
+        <TextBox 
+            x:Name="txtField"
+            Text="Oak Editor 1.0"
+            FontFamily="Old English Text MT"
+            FontSize="36">
+            <TextBox.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.0"></GradientStop>
+                    <GradientStop Color="Gray" Offset="3.0"></GradientStop>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+
+    </DockPanel>
+</Window>

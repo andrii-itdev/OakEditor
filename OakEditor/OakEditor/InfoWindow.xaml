@@ -1,0 +1,32 @@
+﻿<Window x:Class="OakEditor.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OakEditor"
+        mc:Ignorable="d"
+        Title="Information" Height="297.414" Width="505.172"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid
+        Background="LightGray">
+        <TextBlock Margin="20"
+                   Background="White"
+                   TextAlignment="Center"
+                   Padding="10px"
+                   FontFamily="Comic Sans MS"
+                   FontSize="18"
+                   >
+            Owned by Andrii Yurov<LineBreak/>
+            OakEditor 1.0<LineBreak/>
+            © Copyright 2019. All rights reserved<LineBreak/>
+            <LineBreak/>
+            Andrew_Yurov@hotmail.com <LineBreak/>
+            Don't write to me if you're insane. <LineBreak/>
+            Don't write to me if you're not dying. <LineBreak/>
+            Even if you are dying don't write to me anyway. <LineBreak/>
+
+        </TextBlock>
+    </Grid>
+</Window>
